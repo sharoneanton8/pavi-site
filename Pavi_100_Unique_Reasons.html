@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>100 Reasons Why Pavi is Amazing</title>
+<style>
+body{background:#070b1f;color:white;font-family:Arial;margin:0}
+h1{text-align:center;padding:40px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;padding:20px}
+.card{height:170px;perspective:1000px;cursor:pointer}
+.inner{position:relative;width:100%;height:100%;transition:.8s;transform-style:preserve-3d}
+.card.flipped .inner{transform:rotateY(180deg)}
+.front,.back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px}
+.front{background:linear-gradient(135deg,#5d2cff,#0ea5e9)}
+.back{background:#111827;transform:rotateY(180deg)}
+#count{text-align:center;font-size:20px}
+</style>
+</head>
+<body>
+<h1>🌌 100 Reasons Why Pavi is Amazing 🌌</h1>
+<div id="count">Opened: 0 / 100</div>
+<div class="grid" id="grid"></div>
+<script>
+const reasons=['You always make everyone smile 😊',"Your kindness touches people's hearts 💖",'You are an amazing friend 🌸','You listen when others need support 🎧','You inspire people to be better 🌟','Your laugh is contagious 😂','You spread positivity wherever you go ☀️','You have a beautiful soul ❤️','You never give up on your goals 💪','You make ordinary moments special ✨','You care deeply about your loved ones 🤗','You are thoughtful and considerate 🌷','You bring happiness to everyone around you 🎉','You are honest and trustworthy 🤝','You make people feel valued 💝','You are wonderfully unique 🌈','You have a great sense of humor 😄','You stay strong during challenges 🦋','You encourage others to dream big 🚀','You are creative and imaginative 🎨','You brighten even the darkest days 🌙','You always try your best 🌟','You make friendships meaningful 🤍','You are full of warmth and compassion 🌹','You have a caring heart 💕',"You celebrate other people's success 🎊",'You are patient and understanding 🌼','You make life more fun 🎠','You are a source of motivation 🔥','You believe in the people you love 🌻','You bring comfort when someone is sad ☕','You make memories unforgettable 📸','You have a beautiful smile 😊','You always find reasons to be grateful 🌺','You are brave enough to face fears 🦁','You appreciate the little things 🍀','You make people feel welcome 🏡','You have a gentle and kind nature 🕊️','You are incredibly supportive 🤍','You make every conversation enjoyable 💬','You are confident in your own way 🌟','You bring light wherever you go ✨','You are full of wonderful ideas 💡','You inspire confidence in others 🚀','You know how to make people laugh 😆','You value genuine friendships 🌸','You are respectful to everyone 🙏','You have a positive outlook on life 🌞','You make people feel heard 👂','You are naturally lovable ❤️','You are resilient through difficult times 🌈','You create happiness effortlessly 🎈','You care about others sincerely 💝','You are dependable and reliable 🤝','You always try to do the right thing 🌷','You make every gathering more fun 🎉','You are filled with kindness 🌹','You appreciate and cherish relationships 🤗','You are a wonderful human being 🌍','You inspire people with your actions 🌟','You make life brighter ☀️','You have a heart full of love 💕','You are patient with those around you 🌼','You bring peace and comfort 🕊️','You always remain true to yourself 🌸','You make challenges seem easier 💪','You encourage others to keep going 🚶','You make people feel special 🎁','You are naturally thoughtful 🌺','You have a beautiful personality ✨','You are someone people can trust 🔐','You make friends feel appreciated 🤍','You bring joy into everyday life 🎠','You are caring beyond words 💖','You make the world a little better 🌎','You are filled with positive energy ⚡','You know how to lift spirits 🎈','You are always learning and growing 🌱','You have a calm and comforting presence ☕','You inspire kindness in others 🌷','You are wonderfully genuine 💎','You make people feel important 👑','You bring hope during difficult moments 🌟','You are full of compassion 🤗','You turn simple moments into memories 📷','You always find ways to help others 🤝','You make every day more meaningful 🌞','You are an incredible source of support ❤️','You radiate happiness ✨','You have a heart of gold 🏆','You bring smiles wherever you go 😊','You are cherished by many people 💝','You make friendship feel effortless 🌸','You have an amazing ability to care 💕','You make life more colorful 🎨','You inspire gratitude 🌻','You are one of a kind 🌈','You make the world shine brighter ⭐'];
+let opened=0;
+const grid=document.getElementById('grid');
+reasons.forEach((r,i)=>{
+ const c=document.createElement('div');
+ c.className='card';
+ c.innerHTML=`<div class="inner"><div class="front">⭐ Reason #${i+1}</div><div class="back">${r}</div></div>`;
+ c.onclick=()=>{
+  if(!c.classList.contains('flipped')){
+   c.classList.add('flipped');
+   opened++;
+   document.getElementById('count').innerText=`Opened: ${opened} / 100`;
+  }
+ };
+ grid.appendChild(c);
+});
+</script>
+</body>
+</html>
